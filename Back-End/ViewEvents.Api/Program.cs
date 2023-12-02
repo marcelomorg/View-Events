@@ -10,7 +10,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ViewEventContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("ConnectionDevelopment")));
+builder.Services.AddDbContext<ViewEventContext>(options => 
+    options.UseSqlite(builder.Configuration.GetConnectionString("ConnectionDevelopment")))
+;
 
 var app = builder.Build();
 

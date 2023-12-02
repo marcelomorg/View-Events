@@ -9,8 +9,8 @@ namespace ViewEvents.Domain.Models
 		public int PeopleAmount { get; set; }
 		public string ImgUrl { get; set; }
 		public Speaker Speaker { get; set; }
-		public IEnumerable<SocialNetwork> SocialNetwork { get; set; }
-		public IEnumerable<Lot> Lot { get; set; }
+		public IEnumerable<SocialNetwork> SocialNetworks { get; set; }
+		public IEnumerable<Lot> Lots { get; set; }
 		public IEnumerable<EventSpeaker> EventSpeakers { get; set; } 
 	}
 }
