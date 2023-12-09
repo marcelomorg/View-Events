@@ -14,6 +14,8 @@ builder.Services.AddDbContext<ViewEventContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("ConnectionDevelopment")))
 ;
 
+//builder.Services.AddTransient<DbContext, ViewEventContext>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
