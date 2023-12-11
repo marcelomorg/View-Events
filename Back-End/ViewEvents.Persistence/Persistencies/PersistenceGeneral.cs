@@ -6,7 +6,7 @@ namespace ViewEvents.Persistence.Persistencies
 {
     public class PersistenceGeneral : IPersistenceGeneral
     {
-        private readonly ViewEventContext _context;
+        protected readonly ViewEventContext _context;
         public PersistenceGeneral(ViewEventContext context)
         {
             _context = context;

@@ -6,14 +6,14 @@ using ViewEvents.Persistence.Interfaces;
 
 namespace ViewEvents.Persistence.Persistencies
 {
-    public class PersistenceEvent : IPersisteceEvent
+    public class PersistenceEvent : IPersistenceEvent
     {
         protected readonly ViewEventContext _context;
-
         public PersistenceEvent( ViewEventContext context)
         {
             _context = context;
         }
+        
         public async Task<Event[]> GetAllEventsAsync(bool includeSpeaker = false)
         {
            IQueryable<Event> query = _context.events.Include(e => e.Lots).Include(e => e.SocialNetworks);

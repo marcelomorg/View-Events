@@ -1,5 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using ViewEvents.Persistence.Contexts;
+using ViewEvents.Persistence.Interfaces;
+using ViewEvents.Persistence.Persistencies;
+using ViewEvents.Services.Interfaces;
+using ViewEvents.Services.Services;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,11 +16,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ViewEventContext>(options => 
-    options.UseSqlite(builder.Configuration.GetConnectionString("ConnectionDevelopment")))
-;
+builder.Services.AddDbContext<ViewEventContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("ConnectionDevelopment")));
 
-//builder.Services.AddTransient<DbContext, ViewEventContext>();
+builder.Services.AddTransient<IPersistenceGeneral, PersistenceGeneral>();
+builder.Services.AddScoped<IPersistenceEvent, PersistenceEvent>();
+builder.Services.AddTransient<IEventService, EventService>();
 
 var app = builder.Build();
 
