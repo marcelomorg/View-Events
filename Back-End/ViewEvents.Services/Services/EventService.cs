@@ -1,7 +1,5 @@
-using System.Reflection.Metadata;
 using ViewEvents.Domain.Models;
 using ViewEvents.Persistence.Interfaces;
-using ViewEvents.Persistence.Persistencies;
 using ViewEvents.Services.Interfaces;
 
 namespace ViewEvents.Services.Services
@@ -21,32 +19,44 @@ namespace ViewEvents.Services.Services
             return _persistenceEvent.GetAllEventsAsync(false); 
         }
 
-        public Task<Event> GetId(Event id)
+        public Task<Event> GetId(int id)
         {
-            throw new NotImplementedException();
+            return _persistenceEvent.GetEventByIdAsync(id, false);
         }
 
-        public Task<Event[]> GetTheme()
+        public Task<Event[]> GetTheme(String theme)
         {
-            throw new NotImplementedException();
+            return _persistenceEvent.GetAllEventsByThemeAsync(theme, false);
         }
 
-        public void Insert(Event e)
+        public bool Insert(Event e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _persistenceGeneral.Add(e);
+                return _persistenceGeneral.SaveChangesAsync().Result;
+                
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Erro in Insert method. ERRO: " + ex.Message);
+                return false;
+            }
         }
 
-        public void Update(Event e)
+        public bool Update(Event e)
         {
-            throw new NotImplementedException();
+            _persistenceGeneral.Update(e);
+            return _persistenceGeneral.SaveChangesAsync().Result;
         }
 
-        public void Delete(Event e)
+        public bool Delete(Event e)
         {
-            throw new NotImplementedException();
+            _persistenceGeneral.Delete(e);
+            return _persistenceGeneral.SaveChangesAsync().Result;
         }
 
-        public void DeleteRange(Event[] e)
+        public bool DeleteRange(Event[] e)
         {
             throw new NotImplementedException();
         }

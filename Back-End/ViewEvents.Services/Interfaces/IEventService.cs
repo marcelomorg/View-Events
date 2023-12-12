@@ -5,12 +5,12 @@ namespace ViewEvents.Services.Interfaces
     public interface IEventService
     {
         Task<Event[]> GetAll();
-        Task<Event[]> GetTheme();
-        Task<Event> GetId(Event id);
+        Task<Event[]> GetTheme(String theme);
+        Task<Event> GetId(int id);
 
-        void Insert(Event e);
-        void Update(Event e);
-        void Delete(Event e);
-        void DeleteRange(Event[] e);
+        bool Insert(Event e);
+        bool Update(Event e);
+        bool Delete(Event e);
+        bool DeleteRange(Event[] e);
     }
 }

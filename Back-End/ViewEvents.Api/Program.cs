@@ -22,6 +22,7 @@ builder.Services.AddDbContext<ViewEventContext>(options =>
 builder.Services.AddTransient<IPersistenceGeneral, PersistenceGeneral>();
 builder.Services.AddScoped<IPersistenceEvent, PersistenceEvent>();
 builder.Services.AddTransient<IEventService, EventService>();
+//builder.Services.AddCors();
 
 var app = builder.Build();
 
@@ -31,6 +32,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//app.UseCors(c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
 app.UseHttpsRedirection();
 
