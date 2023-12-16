@@ -6,7 +6,6 @@ using ViewEvents.Services.Interfaces;
 using ViewEvents.Services.Services;
 
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -20,8 +19,12 @@ builder.Services.AddDbContext<ViewEventContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("ConnectionDevelopment")));
 
 builder.Services.AddTransient<IPersistenceGeneral, PersistenceGeneral>();
-builder.Services.AddScoped<IPersistenceEvent, PersistenceEvent>();
+builder.Services.AddTransient<IPersistenceEvent, PersistenceEvent>();
+builder.Services.AddTransient<IPersisteceSpeaker, PersistenceSpeaker>();
+
 builder.Services.AddTransient<IEventService, EventService>();
+builder.Services.AddTransient<ISpeakerService, SpeakerService>();
+
 //builder.Services.AddCors();
 
 var app = builder.Build();

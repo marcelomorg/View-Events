@@ -8,9 +8,9 @@ namespace ViewEvents.Services.Interfaces
         Task<Event[]> GetTheme(String theme);
         Task<Event> GetId(int id);
 
-        bool Insert(Event e);
-        bool Update(Event e);
-        bool Delete(Event e);
-        bool DeleteRange(Event[] e);
+        bool Insert(Event event_);
+        bool Update(Event event_);
+        bool Delete(Event event_);
+        bool DeleteRange(Event[] event_);
     }
 }
