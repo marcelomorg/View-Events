@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+</head>
+<body>
+    <header>
+        <app-nav (inputNavEmit)="getInputNavEmit($event)"></app-nav>
+    </header>
+    <section>
+        <table class="table">
+            <thead class="table-light">
+              <tr>
+                <th>#</th>
+                <th>Theme</th>
+                <th>Local</th>
+                <th>Date</th>
+                <th>Amount of people</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of mockdateReturn ">
+              <tr>
+                <td><img src="{{item.imgurl}}" alt="" width="100vw"></td>
+                <td>{{item.theme}}</td>
+                <td>{{item.local}}</td>
+                <td>{{item.eventdate}}</td>
+                <td>{{item.peopleamount}}</td>
+              </tr>
+            </tbody>
+            <tfoot *ngIf="!mockdateReturn.length">
+              <tr>
+                <td colspan="8" class="text-center">
+                  <h3>Not results found.</h3>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+          <div class="d-flex justify-content-center">
+              <pagination [totalItems]="mockdate.length" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage"></pagination>
+          </div>
+    </section>
+    <footer>
+        <app-footer></app-footer>
+    </footer>
+</body>
+</html>
