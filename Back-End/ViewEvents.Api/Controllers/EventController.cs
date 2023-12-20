@@ -15,37 +15,37 @@ namespace ViewEvents.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllEvent()
+        public async Task<IActionResult> GetAllEvent()
         {
             return Ok(_service.GetAll());
         }
 
         [HttpGet("id/{id}")]
-        public IActionResult GetIdEvent(int id)
+        public async Task<IActionResult> GetIdEvent(int id)
         {
             return Ok(_service.GetId(id));
         }
 
         [HttpGet("{theme}")]
-        public IActionResult GetThemeEvent(String theme)
+        public async Task<IActionResult> GetThemeEvent(String theme)
         {
             return Ok(_service.GetTheme(theme));
         }
 
         [HttpPost]
-        public IActionResult setEvent(Event e)
+        public async Task<IActionResult> setEvent(Event e)
         {
             return Ok(_service.Insert(e));
         }
 
         [HttpPut]
-        public IActionResult updateEvent(Event e)
+        public async Task<IActionResult> updateEvent(Event e)
         {
             return Ok(_service.Update(e));
         }
 
         [HttpDelete]
-        public IActionResult deleteEvent(Event e)
+        public async Task<IActionResult> deleteEvent(Event e)
         {
             return Ok(_service.Delete(e));
         }

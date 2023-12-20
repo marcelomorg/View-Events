@@ -13,7 +13,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ListComponent } from './Pages/list/list.component'
-import { PaginationModule } from 'ngx-bootstrap/pagination'
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { RegisterComponent } from './Pages/register/register.component'
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination'
     NavComponent,
     FooterComponent,
     ListComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

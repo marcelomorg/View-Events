@@ -15,40 +15,39 @@ namespace ViewEvents.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllSpeaker()
+        public async Task<IActionResult> GetAllSpeaker()
         {
             return Ok(_service.Getall());
         }
 
         [HttpGet("id/{id}")]
-        public IActionResult GetIdSpeaker(int id)
+        public async Task<IActionResult> GetIdSpeaker(int id)
         {
             return Ok(_service.GetId(id));
         }
 
         [HttpGet("name/{name}")]
-        public IActionResult GetNameSpeaker(string name)
+        public async Task<IActionResult> GetNameSpeaker(string name)
         {
             return Ok(_service.GetName(name));
         }
 
         [HttpPost]
-        public IActionResult SetSpeaker(Speaker speaker)
+        public async Task<IActionResult> SetSpeaker(Speaker speaker)
         {
             return Ok(_service.Insert(speaker));
         }
 
         [HttpPut]
-        public IActionResult UpdateSpeaker(Speaker speaker)
+        public async Task<IActionResult> UpdateSpeaker(Speaker speaker)
         {
             return Ok(_service.Update(speaker));
         }
 
         [HttpDelete]
-        public IActionResult DeleteSpeaker(Speaker speaker)
+        public async Task<IActionResult> DeleteSpeaker(Speaker speaker)
         {
             return Ok(_service.Delete(speaker));
         }
-
     }
 }

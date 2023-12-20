@@ -7,8 +7,6 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
   styleUrl: './list.component.scss'
 })
 export class ListComponent{
-
-  itemsPerPage = 4;
   mockdateReturn: any[] = [];
   mockdate = 
   [
@@ -38,7 +36,7 @@ export class ListComponent{
     this.mockdateReturn = this.mockdate.slice(0, this.itemsPerPage);
   }
  
-  
+  itemsPerPage = 4;
   public pageChanged(event: PageChangedEvent):void{
     const startItem = (event.page -1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;
@@ -46,7 +44,9 @@ export class ListComponent{
   }
  
   public getInputNavEmit(obj:string):void {
-    this.mockdateReturn = this.mockdate.filter(item => item.theme.toLowerCase().includes(obj));
+    if(obj.length){
+      this.mockdateReturn = this.mockdate.filter(item => item.theme.toLowerCase().includes(obj));
+    }
   }
 
 }

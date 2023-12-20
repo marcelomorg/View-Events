@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './nav.component.scss'
 })
 export class NavComponent {
-  @Input() par:string = "";
+  @Input() showSearchInput:boolean = false;
   isCollapsed = true;
 
  inputNav = "";
