@@ -17,6 +17,16 @@ namespace ViewEvents.Persistence.Contexts
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
     	{
         	modelBuilder.Entity<EventSpeaker>().HasKey(ES => new { ES.EventId, ES.SpeakerId });
+
+		// 	modelBuilder.Entity<Event>()
+		// 		.HasMany(e => e.SocialNetworks)
+		// 		.WithOne(sn => sn.Event)
+		// 		.OnDelete(DeleteBehavior.Cascade);
+
+		// 	modelBuilder.Entity<Speaker>()
+		// 		.HasMany(s => s.SocialNetworks)
+		// 		.WithOne(sn => sn.Speaker)
+		// 		.OnDelete(DeleteBehavior.Cascade);
     	}
 	}
 }

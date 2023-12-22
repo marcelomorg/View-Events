@@ -15,7 +15,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ListComponent } from './Pages/list/list.component'
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { RegisterComponent } from './Pages/register/register.component'
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,6 +35,7 @@ import { RegisterComponent } from './Pages/register/register.component'
     CollapseModule,
     PaginationModule.forRoot(),
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

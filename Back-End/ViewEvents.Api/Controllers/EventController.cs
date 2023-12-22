@@ -17,19 +17,20 @@ namespace ViewEvents.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllEvent()
         {
-            return Ok(_service.GetAll());
+            return Ok( await _service.GetAll());
         }
 
         [HttpGet("id/{id}")]
         public async Task<IActionResult> GetIdEvent(int id)
         {
-            return Ok(_service.GetId(id));
+            return Ok(await _service.GetId(id));
+          
         }
 
         [HttpGet("{theme}")]
         public async Task<IActionResult> GetThemeEvent(String theme)
         {
-            return Ok(_service.GetTheme(theme));
+            return Ok(await _service.GetTheme(theme));
         }
 
         [HttpPost]

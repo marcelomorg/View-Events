@@ -11,34 +11,34 @@
     </header>
     <section>
         <table class="table">
-            <thead class="table-light">
-              <tr>
-                <th>#</th>
-                <th>Theme</th>
-                <th>Local</th>
-                <th>Date</th>
-                <th>Amount of people</th>
-              </tr>
-            </thead>
-            <tbody *ngFor="let item of mockdateReturn ">
-              <tr>
-                <td><img src="{{item.imgurl}}" alt="" width="100vw"></td>
-                <td>{{item.theme}}</td>
-                <td>{{item.local}}</td>
-                <td>{{item.eventdate}}</td>
-                <td>{{item.peopleamount}}</td>
-              </tr>
-            </tbody>
-            <tfoot *ngIf="!mockdateReturn.length">
-              <tr>
-                <td colspan="8" class="text-center">
-                  <h3>Not results found.</h3>
-                </td>
-              </tr>
-            </tfoot>
-          </table>
-          <div class="d-flex justify-content-center">
-              <pagination [totalItems]="mockdate.length" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage"></pagination>
+          <thead class="table-light">
+            <tr>
+              <th>#</th>
+              <th>Theme</th>
+              <th>Local</th>
+              <th>Date</th>
+              <th>Amount of people</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let item of eventDataHalf">
+            <tr>
+              <td><img src="{{item.imgUrl}}" alt="" width="100vw"></td>
+              <td>{{item.theme}}</td>
+              <td>{{item.local}}</td>
+              <td>{{item.eventDate}}</td>
+              <td>{{item.peopleAmount}}</td>
+            </tr>
+          </tbody>
+          <tfoot *ngIf="eventDataHalf.length < 1">
+            <tr>
+              <td colspan="8" class="text-center">
+                <h3>Not results found.</h3>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+          <div class="d-flex justify-content-center" *ngIf="showPagination">
+              <pagination [totalItems]="eventData.length" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage"></pagination>
           </div>
     </section>
     <footer>
