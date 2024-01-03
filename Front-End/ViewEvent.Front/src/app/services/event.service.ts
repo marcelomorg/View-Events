@@ -12,6 +12,8 @@ export class EventService {
 
   private BaseUrlConn = "http://localhost:5277/Event";
 
+
+
   public clientGetAll():Observable<Event[]>{
     return this.http.get<Event[]>(this.BaseUrlConn);
   }

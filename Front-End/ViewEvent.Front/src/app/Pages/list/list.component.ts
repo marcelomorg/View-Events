@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { EventService } from '../../services/event.service';
 import { Event } from '../../models/event';
@@ -8,15 +9,36 @@ import { Event } from '../../models/event';
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
-export class ListComponent{ 
+export class ListComponent implements OnInit, AfterViewChecked{ 
 
   eventDataHalf: Event[] = [];
   eventData: Event[] = [];
   showPagination = true;
+  ShowSearch = true;
+  css_levelOne_amount = "Amount of People"
 
-  constructor(private eventService: EventService ){    
-    this.getEvents();
-    // this.getEventsId(1);
+  constructor(private eventService: EventService, private acivatedrouter: ActivatedRoute){
+  }
+
+  ngOnInit(): void {
+    const ident = this.acivatedrouter.snapshot.paramMap.get('id');
+    if( ident ){
+      this.getEventsId(parseInt(ident));
+      this.showPagination = false;
+      this.ShowSearch = false;
+    }else{
+      this.getEvents();
+    }
+  }
+  
+  ngAfterViewChecked(): void {
+    this.getAmountPeople();
+  }
+
+  getAmountPeople(){
+    if(screen.width < 800){
+      this.css_levelOne_amount = "Amount";
+    }
   }
 
   public getEvents(){

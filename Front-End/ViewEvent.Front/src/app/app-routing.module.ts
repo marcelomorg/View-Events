@@ -5,18 +5,10 @@ import { ListComponent } from './Pages/list/list.component';
 import { RegisterComponent } from './Pages/register/register.component';
 
 const routes: Routes = [
-  {
-    path: "",
-    component: HomeComponent
-  },
-  {
-    path: "list",
-    component: ListComponent
-  },
-  {
-    path: "register",
-    component: RegisterComponent
-  }
+  { path: "", component: HomeComponent },
+  { path: "list", component: ListComponent },
+  { path: "list/:id", component: ListComponent },
+  { path: "register", component: RegisterComponent }
 ];
 
 @NgModule({

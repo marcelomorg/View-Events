@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>
-        <app-nav (inputNavEmit)="getInputNavEmit($event)" [showSearchInput]="true"></app-nav>
+        <app-nav (inputNavEmit)="getInputNavEmit($event)" [showSearchInput]="ShowSearch"></app-nav>
     </header>
     <section>
         <table class="table">
@@ -16,8 +16,8 @@
               <th>#</th>
               <th>Theme</th>
               <th>Local</th>
-              <th>Date</th>
-              <th>Amount of people</th>
+              <th class="level-hidden-2">Date</th>
+              <th class="level-hidden-1">{{ css_levelOne_amount }}</th>
             </tr>
           </thead>
           <tbody *ngFor="let item of eventDataHalf">
@@ -25,8 +25,8 @@
               <td><img src="{{item.imgUrl}}" alt="" width="100vw"></td>
               <td>{{item.theme}}</td>
               <td>{{item.local}}</td>
-              <td>{{item.eventDate}}</td>
-              <td>{{item.peopleAmount}}</td>
+              <td class="level-hidden-2">{{item.eventDate}}</td>
+              <td class="level-hidden-1">{{item.peopleAmount}}</td>
             </tr>
           </tbody>
           <tfoot *ngIf="eventDataHalf.length < 1">

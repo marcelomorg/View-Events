@@ -35,7 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     CollapseModule,
     PaginationModule.forRoot(),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

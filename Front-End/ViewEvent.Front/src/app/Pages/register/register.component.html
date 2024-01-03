@@ -1,7 +1,69 @@
 <app-nav></app-nav>
 
-<p>register works!</p>
-<!-- TODO: -->
-<!-- Write form code. -->
+<form>
+    <br>
+    <h3> Event </h3>
+    <br>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Local" aria-label="Local">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Month of the event" aria-label="Month of the event">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+        <input type="text" class="form-control" placeholder="Theme" aria-label="Theme">
+        </div>
+        <div class="col">
+        <input type="text" class="form-control" placeholder="Amount people" aria-label="Amount people">
+        </div>
+    </div>
+    <br>
+    <div class="mb-3">
+        <label for="basic-url" class="form-label">Event banner URL</label>
+        <div class="input-group">
+        <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+        <input type="text" class="form-control" id="imgUrl" aria-describedby="basic-addon3 basic-addon4">
+        </div>   
+    </div>
+    <br>
+    <h3>Speaker</h3>
+    <br>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Speaker name" aria-label="Speaker">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Email" aria-label="Email">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Phone number" aria-label="Phone number">
+        </div>
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-text">Summary</span>
+        <textarea class="form-control" aria-label="With textarea"></textarea>
+    </div>
+    <br>
+    <div class="mb-3">
+        <label for="basic-url" class="form-label">Speaker image URL</label>
+        <div class="input-group">
+        <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+        <input type="text" class="form-control" id="imgUrl" aria-describedby="basic-addon3 basic-addon4">
+        </div>   
+    </div>
+    <br>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <input type="submit" class="btn btn-primary me-md-2" value="Send">
+    </div>
+    <br>
+</form>
+
+  
+  
 
 <app-footer [par]="title"></app-footer>
